@@ -1,97 +1,11 @@
 import './App.css';
-import { Formik, useFormik } from 'formik';
+import Signup from './components/Signup';
 
 function App() {
 
-    const { handleSubmit, handleChange, values } = useFormik({
-      initialValues: {
-        firstName: 'Petek',
-        lastName: 'Hami',
-        email: 'petek@gmail.com',
-        gender: 'female',
-        hobies: []
-      },
-      onSubmit: values => {
-        console.log(values);
-      },
-    });
-
   return (
     <div className="App">
-      <h1>Sign Up</h1>  
-        <form onSubmit={handleSubmit}>
-
-        <label htmlFor="firstName">First Name</label>
-        <input name='firstName' value= {values.firstName} onChange={handleChange}/>
-
-        <br />
-        <br />
-        <label htmlFor="lastName">Last Name</label>
-        <input name='lastName' value= {values.lastName} onChange={handleChange}/>
-
-        <br />
-        <br />
-        <label htmlFor="email">Email</label>
-        <input name='email' value= {values.email} onChange={handleChange}/>
-
-        <br />
-        <br />
-
-        <label htmlFor="gender">Gender</label>
-        <br />
-
-        <span>Male</span>
-        <input 
-        type='radio'
-        name='gender' 
-        value="male" 
-        onChange={handleChange}
-        checked={values.gender === 'male'}
-        />
-
-        <span>Female</span>
-        <input  
-        type='radio'
-        name='gender' 
-        value="female" 
-        onChange={handleChange}
-        checked={values.gender === 'female'}
-        
-        />
-
-        <br />
-
-        <div>
-          <input type='checkbox' name='hobies' value='Fitness' onChange={handleChange} />
-          Fitness
-        </div>
-        
-        <div>
-          <input type='checkbox' name='hobies' value='Yoga'onChange={handleChange} />
-          Yoga
-        </div>
-        
-        <div>
-          <input type='checkbox' name='hobies' value='Cook' onChange={handleChange}/>
-          Cook
-        </div>
-        
-        <select 
-        name='country' 
-        values={values.country}
-        onChange={handleChange}
-        >
-          <option value='turkey'>Turkey</option>
-          <option value='germany'>Germany</option>
-          <option value='netherlands'>Netherlands</option>
-        </select>
-
-        <br />
-        <button type='submit'>Submit</button>
-
-        <br />
-        {JSON.stringify(values)}
-      </form>
+     <Signup />
     </div>
   );
 }
