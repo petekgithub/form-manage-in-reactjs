@@ -6,7 +6,7 @@ import validationSchema from './validations'
 
 const Signup = () => {
 
-    const { handleSubmit, handleChange, values } = useFormik({
+    const { handleSubmit, handleChange, handleBlur, values, errors, touched } = useFormik({
         initialValues: {
           email: '',
           password: '',
@@ -23,24 +23,41 @@ const Signup = () => {
     <div>
          <h1>Sign Up</h1>  
         <form onSubmit={handleSubmit}>
-
         <br />
         <br />
 
         <label>Email</label>
-        <input name='email' value= {values.email} onChange={handleChange}/>
+        <input 
+        name='email' 
+        value= {values.email} 
+        onChange={handleChange} 
+        onBlur={handleBlur}/>
+        
+        {errors.email && touched.email && (<div className='error'>errors.email</div>) }
 
         <br />
         <br />
 
         <label>Password</label>
-        <input name='password' value= {values.password} onChange={handleChange}/>
+        <input 
+        name='password' 
+        value= {values.password} 
+        onChange={handleChange} 
+        onBlur={handleBlur}/>
+
+        {errors.password && touched.password && (<div className='error'>errors.password</div>) }
 
         <br />
         <br />
 
         <label>Confirm Password</label>
-        <input name='passwordConfirm' value= {values.passwordConfirm} onChange={handleChange}/>
+        <input 
+        name='passwordConfirm' 
+        value= {values.passwordConfirm} 
+        onChange={handleChange} 
+        onBlur={handleBlur}/>
+
+        {errors.passwordConfirm && touched.passwordConfirm && (<div className='error'>errors.passwordConfirm</div>) }
 
         <br />
         <br />
